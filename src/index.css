@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Manrope:wght@300;400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #06060f;
+  --color-bg-alt: #0d0d1a;
+  --color-bg-heavy: #13132a;
+  --color-violet: #9b5de5;
+  --color-violet-light: #c77dff;
+  --color-cyan: #00f5d4;
+  --color-pink: #f72585;
+  --color-text-main: #f0eeff;
+  --color-muted: #8884aa;
+  --color-border-accent: rgba(155, 93, 229, 0.2);
+
+  --font-syne: "Syne", sans-serif;
+  --font-manrope: "Manrope", sans-serif;
+
+  --animate-float: float 8s ease-in-out infinite;
+  --animate-spin-slow: spin 6s linear infinite;
+  --animate-wave-1: wave1 1s ease-in-out infinite;
+  --animate-wave-2: wave2 0.7s ease-in-out infinite;
+  --animate-wave-3: wave3 1.3s ease-in-out infinite;
+  --animate-wave-4: wave4 0.9s ease-in-out infinite;
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-30px); }
+  }
+  @keyframes wave1 {
+    0%, 100% { transform: scaleY(0.3); }
+    50% { transform: scaleY(1); }
+  }
+  @keyframes wave2 {
+    0%, 100% { transform: scaleY(0.2); }
+    50% { transform: scaleY(1.2); }
+  }
+  @keyframes wave3 {
+    0%, 100% { transform: scaleY(0.4); }
+    50% { transform: scaleY(1.1); }
+  }
+  @keyframes wave4 {
+    0%, 100% { transform: scaleY(0.25); }
+    50% { transform: scaleY(0.9); }
+  }
+}
+
+@layer base {
+  * {
+    @apply box-border m-0 p-0;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply font-manrope bg-bg text-text-main text-base leading-relaxed overflow-x-hidden;
+  }
+
+  /* Grid noise background */
+  body::before {
+    content: '';
+    @apply fixed inset-0 pointer-events-none z-0;
+    background-image: 
+      linear-gradient(rgba(155, 93, 229, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(155, 93, 229, 0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+}
+
+@layer components {
+  .section-tag {
+    @apply text-[0.75rem] font-bold tracking-[0.2em] uppercase text-violet-light mb-4;
+  }
+
+  .section-title {
+    @apply font-syne text-[clamp(2rem,5vw,3.2rem)] font-extrabold leading-[1.1] mb-4 tracking-[-0.02em];
+  }
+
+  .btn {
+    @apply inline-flex items-center gap-2 px-8 py-3.5 rounded-full font-manrope text-[0.9rem] font-semibold no-underline transition-all duration-250 cursor-pointer border-none;
+  }
+
+  .btn-primary {
+    @apply bg-linear-to-br from-violet to-violet-light text-white shadow-[0_0_30px_rgba(155,93,229,0.4)] hover:shadow-[0_0_50px_rgba(155,93,229,0.6)] hover:-translate-y-0.5;
+  }
+
+  .btn-outline {
+    @apply bg-transparent text-text-main border border-border-accent hover:border-violet hover:text-violet-light;
+  }
+}

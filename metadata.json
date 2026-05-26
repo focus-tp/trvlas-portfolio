@@ -1,0 +1,8 @@
+{
+  "name": "Татьяна Власова — AI Creator Portfolio",
+  "description": "Портфолио Татьяны Власовой, специалиста по AI-визуализации, цифровым аватарам и видео-контенту.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
